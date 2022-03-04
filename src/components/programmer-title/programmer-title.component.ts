@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: 'app-programmer-title',
-  templateUrl: './programmer-title.component.html',
+  template: `<h1>Programmers</h1>`,
   styleUrls: ['./programmer-title.component.scss']
 })
 
