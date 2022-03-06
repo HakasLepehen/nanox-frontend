@@ -11,7 +11,6 @@ export class ProgrammerTableComponent implements OnInit {
   displayedColumns: Array<String> = ['id', 'Firstname', 'Lastname', 'Middlename', 'Position', 'Date Of Birth', 'Active', 'remove'];
   @Input() programmers!: Array<Programmer>;
 
-
   constructor() {
   }
 
