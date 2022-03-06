@@ -7,8 +7,6 @@ import {ProgrammerTitleComponent} from 'src/app/components/programmer-title/prog
 import {ProgrammerTableComponent} from './components/programmer-table/programmer-table.component';
 import {TopBarComponent} from 'src/app/components/top-bar/top-bar.component';
 import {MaterialModule} from 'src/material.module';
-import {Programmer} from 'src/app/interfaces/Programmer';
-import {Position} from 'src/app/enums/Position';
 
 @NgModule({
   declarations: [
@@ -20,7 +18,7 @@ import {Position} from 'src/app/enums/Position';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

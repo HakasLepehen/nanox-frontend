@@ -8,4 +8,5 @@ export interface Programmer {
   position: Position;
   dateOfBirth?: string;
   active: boolean;
+  delete(id: number): void;
 }
