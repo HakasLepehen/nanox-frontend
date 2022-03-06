@@ -1,5 +1,4 @@
-import { Position } from "src/enums/Position";
-import { DatePipe } from "@angular/common";
+import { Position } from "src/app/enums/Position";
 
 export interface Programmer {
   id: number;
@@ -7,6 +6,6 @@ export interface Programmer {
   lastName: string;
   middleName?: string;
   position: Position;
-  // dateOfBirth?: DatePipe;
+  dateOfBirth?: string;
   active: boolean;
 }
