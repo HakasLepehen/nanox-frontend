@@ -3,22 +3,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {ProgrammerTitleComponent} from 'src/app/components/programmer-title/programmer-title.component';
-import {ProgrammerTableComponent} from './components/programmer-table/programmer-table.component';
-import {TopBarComponent} from 'src/app/components/top-bar/top-bar.component';
-import {MaterialModule} from 'src/material.module';
+import {ProgrammerModule} from "./modules/programmer.module";
+import { ProgrammerComponent } from './components/programmer/programmer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopBarComponent,
-    ProgrammerTableComponent,
-    ProgrammerTitleComponent
+    ProgrammerComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    ProgrammerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

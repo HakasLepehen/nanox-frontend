@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProgrammerTableComponent } from './programmer-table.component';
+import { TableComponent } from './table.component';
 
 describe('ProgrammerTableComponent', () => {
-  let component: ProgrammerTableComponent;
-  let fixture: ComponentFixture<ProgrammerTableComponent>;
+  let component: TableComponent;
+  let fixture: ComponentFixture<TableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgrammerTableComponent ]
+      declarations: [ TableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProgrammerTableComponent);
+    fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
