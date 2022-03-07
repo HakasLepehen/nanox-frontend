@@ -7,24 +7,27 @@ import {MaterialModule} from "../../material.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {PopupComponent} from "../components/popup/popup.component";
 
 @NgModule({
   declarations: [
     TopBarComponent,
     TableComponent,
-    TitleComponent
+    TitleComponent,
+    PopupComponent,
   ],
   exports: [
     TableComponent,
     TopBarComponent,
-    TitleComponent
+    TitleComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     MaterialModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ]
 })
 export class ProgrammerModule { }
