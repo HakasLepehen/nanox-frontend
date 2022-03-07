@@ -6,7 +6,7 @@ import {TitleComponent} from "../components/title/title.component";
 import {MaterialModule} from "../../material.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ProgrammerComponent} from "../components/programmer/programmer.component";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import {ProgrammerComponent} from "../components/programmer/programmer.component
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    MatPaginatorModule
   ]
 })
 export class ProgrammerModule { }
