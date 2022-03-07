@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss']
 })
-export class PopupComponent implements OnInit {
+export class PopupComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(private _bottomSheetRef: MatBottomSheetRef<any>) { }
 }

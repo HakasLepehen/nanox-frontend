@@ -1,6 +1,4 @@
-import { Component, Output } from '@angular/core';
-import {Programmer} from "./interfaces/Programmer";
-import {Position} from "./enums/Position";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

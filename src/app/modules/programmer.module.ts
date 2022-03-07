@@ -8,6 +8,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {PopupComponent} from "../components/popup/popup.component";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {PopupComponent} from "../components/popup/popup.component";
     CommonModule,
     MaterialModule,
     MatPaginatorModule,
+    MatListModule
   ]
 })
 export class ProgrammerModule { }
