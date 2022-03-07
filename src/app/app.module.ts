@@ -13,7 +13,7 @@ import {MaterialModule} from 'src/material.module';
     AppComponent,
     TopBarComponent,
     ProgrammerTableComponent,
-    ProgrammerTitleComponent,
+    ProgrammerTitleComponent
   ],
   imports: [
     BrowserModule,

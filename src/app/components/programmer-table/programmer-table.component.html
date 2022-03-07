@@ -1,50 +1,52 @@
 <table mat-table [dataSource]="programmers" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> No.</th>
     <td mat-cell *matCellDef="let index = index;"> {{index}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
   </ng-container>
 
-  <!-- Name Column -->
   <ng-container matColumnDef="Firstname">
     <th mat-header-cell *matHeaderCellDef> Firstname</th>
     <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
   </ng-container>
 
-  <!-- Weight Column -->
   <ng-container matColumnDef="Lastname">
     <th mat-header-cell *matHeaderCellDef> Lastname</th>
     <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
   </ng-container>
 
-  <!-- Symbol Column -->
   <ng-container matColumnDef="Middlename">
     <th mat-header-cell *matHeaderCellDef> Middlename</th>
     <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
   </ng-container>
 
   <ng-container matColumnDef="Position">
     <th mat-header-cell *matHeaderCellDef> Position</th>
     <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
   </ng-container>
 
   <ng-container matColumnDef="Date Of Birth">
     <th mat-header-cell *matHeaderCellDef> Date Of Birth</th>
     <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+    <td mat-footer-cell *matFooterCellDef></td>
   </ng-container>
 
   <ng-container matColumnDef="Active">
     <th mat-header-cell *matHeaderCellDef>Active</th>
     <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+    <td mat-footer-cell *matFooterCellDef>
+      <button mat-button color="primary" class="more">Load more...</button>
+    </td>
   </ng-container>
 
-  <ng-container matColumnDef="remove">
+  <ng-container matColumnDef="operations" class="operations">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element" class="operations-cell">
       <button mat-mini-fab color="green" (click)="edit(element.id)">
         <mat-icon>edit</mat-icon>
       </button>
@@ -52,8 +54,13 @@
         <mat-icon>delete</mat-icon>
       </button>
     </td>
+    <td mat-footer-cell *matFooterCellDef>
+      {{programmers.length}} of {{programmers.length}}
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
 </table>
