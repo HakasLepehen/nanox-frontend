@@ -6,9 +6,7 @@ import {TitleComponent} from "../components/title/title.component";
 import {MaterialModule} from "../../material.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatPaginatorModule} from "@angular/material/paginator";
 import {PopupComponent} from "../components/popup/popup.component";
-import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -28,8 +26,7 @@ import {MatListModule} from "@angular/material/list";
     BrowserAnimationsModule,
     CommonModule,
     MaterialModule,
-    MatPaginatorModule,
-    MatListModule
-  ]
+  ],
+  providers: []
 })
 export class ProgrammerModule { }
