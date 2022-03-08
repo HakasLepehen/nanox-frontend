@@ -1,8 +1,10 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {Programmer} from "../../interfaces/Programmer";
 import {Position} from "../../enums/Position";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
+import {MatBottomSheet} from "@angular/material/bottom-sheet";
+import {PopupComponent} from "../popup/popup.component";
 
 @Component({
   selector: 'app-table',
@@ -15,6 +17,9 @@ export class TableComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<Programmer>(programmers);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(private bottomSheet: MatBottomSheet) {
+  }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -26,6 +31,7 @@ export class TableComponent implements AfterViewInit {
 
   edit(id: number) {
     console.log(id);
+    this.bottomSheet.open(PopupComponent);
   }
 }
 

@@ -8,5 +8,5 @@ import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 })
 export class PopupComponent {
 
-  constructor(private _bottomSheetRef: MatBottomSheetRef<any>) { }
+  constructor(private _bottomSheetRef: MatBottomSheetRef<PopupComponent>) { }
 }
