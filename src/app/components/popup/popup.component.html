@@ -1,6 +1,50 @@
-<mat-nav-list>
-  <a href="https://keep.google.com/" mat-list-item>
-    <span mat-line>Google Keep</span>
-    <span mat-line>Add to a note</span>
-  </a>
-</mat-nav-list>
+<form [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>name</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Last name</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Middle name</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Select position</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Date of birth</mat-label>
+    <input matInput>
+  </mat-form-field>
+<!--  <mat-form-field appearance="fill">-->
+<!--    <mat-label>Middle name</mat-label>-->
+<!--    <mat-checkbox> asd </mat-checkbox>-->
+<!--  </mat-form-field>-->
+  <button mat-raised-button color="primary">Save</button>
+</form>
+
+<!--<form [formGroup]="formData" (ngSubmit)="onSubmit()">-->
+
+<!--  <div>-->
+<!--    <label for="name">-->
+<!--      Name-->
+<!--    </label>-->
+<!--    <input id="name" type="text" formControlName="name">-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label for="address">-->
+<!--      Address-->
+<!--    </label>-->
+<!--    <input id="address" type="text" formControlName="address">-->
+<!--  </div>-->
+
+<!--  <button class="button" type="submit">Purchase</button>-->
+
+<!--</form>-->
