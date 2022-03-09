@@ -47,7 +47,7 @@
   <ng-container matColumnDef="operations" class="operations">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element" class="operations-cell">
-      <button mat-mini-fab color="green" (click)="edit(element.id)">
+      <button mat-mini-fab color="green" (click)="add()">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-mini-fab color="warn" (click)="remove(element.id)">
@@ -55,7 +55,7 @@
       </button>
     </td>
     <td mat-footer-cell *matFooterCellDef>
-      {{dataSource.data.length}} of {{dataSource.data.length}}
+      {{dataSource.length}} of {{dataSource.length}}
     </td>
   </ng-container>
 
@@ -64,7 +64,3 @@
   <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
-               showFirstLastButtons
-               aria-label="Select page of periodic elements">
-</mat-paginator>
