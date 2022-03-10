@@ -47,7 +47,8 @@
   <ng-container matColumnDef="operations" class="operations">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element" class="operations-cell">
-      <button mat-mini-fab color="green" (click)="add()">
+      <button mat-mini-fab color="green">
+<!--              (click)="add()"-->
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-mini-fab color="warn" (click)="remove(element.id)">

@@ -10,7 +10,7 @@ import {TableService} from "../../services/table.service";
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   providers: [
-    TableService
+
   ]
 })
 
@@ -25,9 +25,9 @@ export class TableComponent implements OnInit{
     this.getData();
   }
 
-  add() {
-    this.bottomSheet.open(PopupComponent);
-    // this.tableService.add(programmer);
+  add(programmer: any) {
+    const bottomSheetRef= this.bottomSheet.open(PopupComponent);
+    this.tableService.add(programmer);
     this.getData();
   }
 

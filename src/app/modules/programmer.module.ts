@@ -7,6 +7,7 @@ import {MaterialModule} from "./material.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {PopupComponent} from "../components/popup/popup.component";
+import {TableService} from "../services/table.service";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import {PopupComponent} from "../components/popup/popup.component";
     CommonModule,
     MaterialModule,
   ],
-  providers: []
+  providers: [
+    TableService
+  ]
 })
 export class ProgrammerModule { }
