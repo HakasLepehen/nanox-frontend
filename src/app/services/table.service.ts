@@ -73,8 +73,8 @@ export class TableService {
     this.programmers = this.programmers.filter(programmer => programmer.id !== id);
   }
 
-  add(programmer: any) {
+  add(programmer: Programmer) {
     this.programmers.push(programmer);
-    console.log(this.programmers);
+    console.log('added new programmer', this.programmers);
   }
 }

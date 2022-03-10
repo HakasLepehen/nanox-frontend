@@ -7,7 +7,6 @@ import {PopupComponent} from "../popup/popup.component";
   template: `
     <div class="wrapper">
       <h1>Programmers</h1>
-      <button mat-raised-button color="primary" (click)="openBottomSheet()">add</button>
     </div>
   `,
   styleUrls: ['./title.component.scss']
@@ -15,10 +14,6 @@ import {PopupComponent} from "../popup/popup.component";
 
 export class TitleComponent {
 
-  constructor(private bottomSheet: MatBottomSheet) {
-  }
-
-  openBottomSheet(): void {
-    this.bottomSheet.open(PopupComponent);
+  constructor() {
   }
 }
