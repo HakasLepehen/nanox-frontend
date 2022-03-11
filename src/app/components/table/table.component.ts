@@ -28,19 +28,19 @@ export class TableComponent implements OnInit{
 
   add() {
     const bottomSheetRef= this.bottomSheet.open(PopupComponent);
-    console.log('bottomSheetRef are', bottomSheetRef);
     // this.tableService.add(bottomSheetRef);
     this.getData();
   }
 
-  actionHandler(action: string, element: Programmer | null): any {
+  actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
       const options = new MatBottomSheetConfig();
       options.data = {...element};
-      console.log(options)
       return this.bottomSheet.open(PopupComponent, options);
     }
     if (action === ActionType.ADD) {
+      // return this.bottomSheet.open(PopupComponent);
+      console.log('работал add');
       return this.bottomSheet.open(PopupComponent);
     }
   }

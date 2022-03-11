@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
@@ -12,7 +12,7 @@ import {TableService} from "../../services/table.service";
     TableService
   ]
 })
-export class PopupComponent {
+export class PopupComponent implements OnInit{
   formData = this.formBuilder.group({
     firstName: '',
     lastName: '',
@@ -27,8 +27,13 @@ export class PopupComponent {
     private tableService: TableService
   ) { }
 
+  ngOnInit() {
+    this.formData = this._bottomSheetRef.containerInstance.bottomSheetConfig.data;
+  }
+
   onSubmit(): void {
-    this.tableService.add(this.formData.value);
+    console.log(this.formData);
+    // this.tableService.add(this.formData.value);
     // this.formData.reset();
     this._bottomSheetRef.dismiss();
   }
