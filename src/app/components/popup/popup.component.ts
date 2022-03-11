@@ -12,7 +12,7 @@ import {TableService} from "../../services/table.service";
     TableService
   ]
 })
-export class PopupComponent implements OnInit{
+export class PopupComponent implements OnInit {
   formData = this.formBuilder.group({
     firstName: '',
     lastName: '',
@@ -25,10 +25,13 @@ export class PopupComponent implements OnInit{
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
     private formBuilder: FormBuilder,
     private tableService: TableService
-  ) { }
+  ) {
+  }
 
-  ngOnInit() {
-    this.formData = this._bottomSheetRef.containerInstance.bottomSheetConfig.data;
+  ngOnInit(): void {
+    if (this._bottomSheetRef.containerInstance.bottomSheetConfig.data !== null) {
+      this.formData = this.formBuilder.group(this._bottomSheetRef.containerInstance.bottomSheetConfig.data.element);
+    }
   }
 
   onSubmit(): void {

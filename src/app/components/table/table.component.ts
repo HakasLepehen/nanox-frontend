@@ -15,7 +15,7 @@ import {ActionType} from "../../enums/actionType";
   ]
 })
 
-export class TableComponent implements OnInit{
+export class TableComponent implements OnInit {
   displayedColumns: Array<String> = ['id', 'Firstname', 'Lastname', 'Middlename', 'Position', 'Date Of Birth', 'Active', 'operations'];
   dataSource: Array<Programmer> = [];
 
@@ -26,23 +26,16 @@ export class TableComponent implements OnInit{
     this.getData();
   }
 
-  add() {
-    const bottomSheetRef= this.bottomSheet.open(PopupComponent);
-    // this.tableService.add(bottomSheetRef);
-    this.getData();
-  }
-
   actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
       const options = new MatBottomSheetConfig();
-      options.data = {...element};
+      options.data = {element};
       return this.bottomSheet.open(PopupComponent, options);
     }
     if (action === ActionType.ADD) {
-      // return this.bottomSheet.open(PopupComponent);
-      console.log('работал add');
       return this.bottomSheet.open(PopupComponent);
     }
+    return;
   }
 
   getData(): void {
@@ -52,10 +45,6 @@ export class TableComponent implements OnInit{
   remove(id: number): void {
     this.tableService.remove(id);
     this.getData();
-  }
-
-  edit(id: number) {
-    this.bottomSheet.open(PopupComponent);
   }
 }
 

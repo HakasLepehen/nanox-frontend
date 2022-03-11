@@ -11,7 +11,7 @@ export class TableService {
       id: 1,
       firstName: 'Павел',
       lastName: 'Петров',
-      middleName: '',
+      middleName: 'Валериевич',
       position: Position.JUNIOR,
       dateOfBirth: '11/01/2001',
       active: true
@@ -20,7 +20,7 @@ export class TableService {
       id: 12,
       firstName: 'Павел',
       lastName: 'Петров',
-      middleName: '',
+      middleName: 'Иванович',
       position: Position.JUNIOR,
       dateOfBirth: '11/01/2001',
       active: true
@@ -29,7 +29,7 @@ export class TableService {
       id: 13,
       firstName: 'Павел',
       lastName: 'Петров',
-      middleName: '',
+      middleName: 'Петрович',
       position: Position.SENIOR,
       dateOfBirth: '11/01/2001',
       active: true
