@@ -13,7 +13,7 @@ export class TableService {
       lastName: 'Петров',
       middleName: 'Валериевич',
       position: Position.JUNIOR,
-      dateOfBirth: '11/01/2001',
+      dateOfBirth: 'Sat Mar 12 2022 00:00:00 GMT+0600',
       active: true
     },
     {

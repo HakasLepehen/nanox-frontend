@@ -28,6 +28,7 @@ export class TableComponent implements OnInit {
 
   actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
+      console.log(element);
       const options = new MatBottomSheetConfig();
       options.data = {element};
       return this.bottomSheet.open(PopupComponent, options);

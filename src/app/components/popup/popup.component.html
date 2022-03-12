@@ -1,5 +1,5 @@
 <form [formGroup]="formData" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill" >
+  <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
     <input matInput type="text" formControlName="firstName">
   </mat-form-field>
@@ -14,8 +14,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Select position</mat-label>
     <mat-select formControlName="position">
-      <mat-option value="one">Junior</mat-option>
-      <mat-option value="two">Second option</mat-option>
+      <mat-option *ngFor="let position of positions" value="{{position}}">{{position}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
@@ -26,21 +25,3 @@
   </mat-form-field>
   <button mat-raised-button color="primary">Save</button>
 </form>
-
-<!--<form [formGroup]="formData" (ngSubmit)="onSubmit()">-->
-
-<!--  <div>-->
-<!--    <label for="name">-->
-<!--      Name-->
-<!--    </label>-->
-<!--    <input id="name" type="text" formControlName="name">-->
-<!--  </div>-->
-
-<!--  <div>-->
-<!--    <label for="address">-->
-<!--      Address-->
-<!--    </label>-->
-<!--    <input id="address" type="text" formControlName="address">-->
-<!--  </div>-->
-<!--  <button mat-raised-button color="primary">Save</button>-->
-<!--</form>-->

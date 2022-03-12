@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
@@ -18,8 +18,9 @@ export class PopupComponent implements OnInit {
     lastName: '',
     middleName: '',
     position: Position,
-    dateOfBirth: '',
+    dateOfBirth: Date,
   });
+  positions: Array<Position> = [Position.JUNIOR, Position.MIDDLE, Position.SENIOR];
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
@@ -35,7 +36,7 @@ export class PopupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.formData);
+    console.log(this.formData.value);
     // this.tableService.add(this.formData.value);
     // this.formData.reset();
     this._bottomSheetRef.dismiss();
