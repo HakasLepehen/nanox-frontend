@@ -1,15 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
 import {TableService} from "../../services/table.service";
+import {Programmer} from "../../interfaces/Programmer";
+import {TableComponent} from "../table/table.component";
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
   providers: [
-    TableService
+    TableService,
   ]
 })
 export class PopupComponent implements OnInit {
@@ -20,25 +22,28 @@ export class PopupComponent implements OnInit {
     position: Position,
     dateOfBirth: Date,
   });
+  //positions are needed to transfer positions to the form
   positions: Array<Position> = [Position.JUNIOR, Position.MIDDLE, Position.SENIOR];
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
     private formBuilder: FormBuilder,
-    private tableService: TableService
+    private tableService: TableService,
   ) {
   }
 
   ngOnInit(): void {
     if (this._bottomSheetRef.containerInstance.bottomSheetConfig.data !== null) {
-      this.formData = this.formBuilder.group(this._bottomSheetRef.containerInstance.bottomSheetConfig.data.element);
+      const programmer = this._bottomSheetRef.containerInstance.bottomSheetConfig.data.element;
+
+      programmer.dateOfBirth = new Date(programmer.dateOfBirth);
+      this.formData = this.formBuilder.group(programmer);
     }
   }
 
   onSubmit(): void {
-    console.log(this.formData.value);
-    // this.tableService.add(this.formData.value);
-    // this.formData.reset();
+    const programmer: Programmer = this.formData.value;
+    programmer.id ? this.tableService.edit(programmer) : this.tableService.add(programmer);
     this._bottomSheetRef.dismiss();
   }
 }

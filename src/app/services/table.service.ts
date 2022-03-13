@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Output} from '@angular/core';
 import {Programmer} from "../interfaces/Programmer";
 import {Position} from "../enums/Position";
+import {BehaviorSubject} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TableService {
   private programmers: Programmer[] = [
     {
@@ -13,7 +12,7 @@ export class TableService {
       lastName: 'Петров',
       middleName: 'Валериевич',
       position: Position.JUNIOR,
-      dateOfBirth: 'Sat Mar 12 2022 00:00:00 GMT+0600',
+      dateOfBirth: 'Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)',
       active: true
     },
     {
@@ -22,9 +21,10 @@ export class TableService {
       lastName: 'Петров',
       middleName: 'Иванович',
       position: Position.JUNIOR,
-      dateOfBirth: '11/01/2001',
+      dateOfBirth: 'Thu Jul 16 1998 00:00:00 GMT+0700 (Омск, летнее время)',
       active: true
     },
+
     {
       id: 13,
       firstName: 'Павел',
@@ -34,36 +34,37 @@ export class TableService {
       dateOfBirth: '11/01/2001',
       active: true
     },
-    {
-      id: 10,
-      firstName: 'Павел',
-      lastName: 'Петров',
-      middleName: '',
-      position: Position.MIDDLE,
-      dateOfBirth: '11/01/2001',
-      active: true
-    },
-    {
-      id: 15,
-      firstName: 'Павел',
-      lastName: 'Петров',
-      middleName: '',
-      position: Position.MIDDLE,
-      dateOfBirth: '11/01/2001',
-      active: true
-    },
-    {
-      id: 16,
-      firstName: 'Павел',
-      lastName: 'Петров',
-      middleName: '',
-      position: Position.MIDDLE,
-      dateOfBirth: '11/01/2001',
-      active: true
-    }
+    // {
+    //   id: 10,
+    //   firstName: 'Павел',
+    //   lastName: 'Петров',
+    //   middleName: '',
+    //   position: Position.MIDDLE,
+    //   dateOfBirth: '11/01/2001',
+    //   active: true
+    // },
+    // {
+    //   id: 15,
+    //   firstName: 'Павел',
+    //   lastName: 'Петров',
+    //   middleName: '',
+    //   position: Position.MIDDLE,
+    //   dateOfBirth: '11/01/2001',
+    //   active: true
+    // },
+    // {
+    //   id: 16,
+    //   firstName: 'Павел',
+    //   lastName: 'Петров',
+    //   middleName: '',
+    //   position: Position.MIDDLE,
+    //   dateOfBirth: '11/01/2001',
+    //   active: true
+    // }
   ]
 
-  constructor() { }
+  constructor() {
+  }
 
   getData(): Array<Programmer> {
     return this.programmers;
@@ -76,5 +77,16 @@ export class TableService {
   add(programmer: Programmer) {
     this.programmers.push(programmer);
     console.log('added new programmer', this.programmers);
+  }
+
+  edit(id: Programmer) {
+    this.programmers.map((el, index) => {
+      if (el.id === id.id) {
+        this.programmers[index] = id;
+        return;
+      }
+      return;
+    });
+    console.log(this.programmers);
   }
 }

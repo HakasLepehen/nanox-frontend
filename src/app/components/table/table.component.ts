@@ -1,29 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Programmer} from "../../interfaces/Programmer";
 import {Position} from "../../enums/Position";
 import {MatBottomSheet, MatBottomSheetConfig} from "@angular/material/bottom-sheet";
 import {PopupComponent} from "../popup/popup.component";
 import {TableService} from "../../services/table.service";
 import {ActionType} from "../../enums/actionType";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   providers: [
-    TableService
+    TableService,
   ]
 })
 
-export class TableComponent implements OnInit {
+export class TableComponent {
   displayedColumns: Array<String> = ['id', 'Firstname', 'Lastname', 'Middlename', 'Position', 'Date Of Birth', 'Active', 'operations'];
-  dataSource: Array<Programmer> = [];
+  dataSource: Array<Programmer> = this.tableService.getData();
+  subj = new BehaviorSubject(this.tableService.getData());
+
 
   constructor(private bottomSheet: MatBottomSheet, private tableService: TableService) {
-  }
-
-  ngOnInit() {
-    this.getData();
   }
 
   actionHandler(action: string, element?: Programmer): any {
