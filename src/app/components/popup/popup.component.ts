@@ -4,7 +4,6 @@ import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
 import {TableService} from "../../services/table.service";
 import {Programmer} from "../../interfaces/Programmer";
-import {TableComponent} from "../table/table.component";
 
 @Component({
   selector: 'app-popup',

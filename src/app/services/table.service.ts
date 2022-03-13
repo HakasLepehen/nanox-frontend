@@ -1,7 +1,6 @@
-import {Injectable, Output} from '@angular/core';
-import {Programmer} from "../interfaces/Programmer";
-import {Position} from "../enums/Position";
-import {BehaviorSubject} from "rxjs";
+import { Injectable } from '@angular/core';
+import { Programmer } from '../interfaces/Programmer';
+import { Position } from '../enums/Position';
 
 @Injectable()
 export class TableService {
@@ -12,8 +11,9 @@ export class TableService {
       lastName: 'Петров',
       middleName: 'Валериевич',
       position: Position.JUNIOR,
-      dateOfBirth: 'Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)',
-      active: true
+      dateOfBirth:
+        'Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)',
+      active: true,
     },
     {
       id: 12,
@@ -22,7 +22,7 @@ export class TableService {
       middleName: 'Иванович',
       position: Position.JUNIOR,
       dateOfBirth: 'Thu Jul 16 1998 00:00:00 GMT+0700 (Омск, летнее время)',
-      active: true
+      active: true,
     },
 
     {
@@ -32,7 +32,7 @@ export class TableService {
       middleName: 'Петрович',
       position: Position.SENIOR,
       dateOfBirth: '11/01/2001',
-      active: true
+      active: true,
     },
     // {
     //   id: 10,
@@ -61,7 +61,7 @@ export class TableService {
     //   dateOfBirth: '11/01/2001',
     //   active: true
     // }
-  ]
+  ];
 
   constructor() {
   }
@@ -71,7 +71,10 @@ export class TableService {
   }
 
   remove(id: number) {
-    this.programmers = this.programmers.filter(programmer => programmer.id !== id);
+    this.programmers = this.programmers.filter(
+      (programmer) => programmer.id !== id
+    );
+    console.log(`Deleted programmer with ${id}`, this.programmers);
   }
 
   add(programmer: Programmer) {
