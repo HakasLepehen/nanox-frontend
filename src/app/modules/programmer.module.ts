@@ -7,7 +7,9 @@ import {MaterialModule} from "./material.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {PopupComponent} from "../components/popup/popup.component";
-import {TableService} from "../services/table.service";
+import {HttpClientModule} from "@angular/common/http";
+import {ProgrammerService} from "../services/programmer.service";
+import {ApiService} from "../services/api.service";
 
 @NgModule({
   declarations: [
@@ -27,9 +29,11 @@ import {TableService} from "../services/table.service";
     BrowserAnimationsModule,
     CommonModule,
     MaterialModule,
+    HttpClientModule
   ],
   providers: [
-    TableService
+    ProgrammerService,
+    ApiService
   ]
 })
 export class ProgrammerModule { }

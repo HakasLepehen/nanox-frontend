@@ -2,16 +2,13 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
-import {TableService} from "../../services/table.service";
 import {Programmer} from "../../interfaces/Programmer";
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
-  providers: [
-    TableService,
-  ]
+  providers: []
 })
 export class PopupComponent implements OnInit {
   formData = this.formBuilder.group({
@@ -27,7 +24,6 @@ export class PopupComponent implements OnInit {
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
     private formBuilder: FormBuilder,
-    private tableService: TableService,
   ) {
   }
 
@@ -42,7 +38,8 @@ export class PopupComponent implements OnInit {
 
   onSubmit(): void {
     const programmer: Programmer = this.formData.value;
-    programmer.id ? this.tableService.edit(programmer) : this.tableService.add(programmer);
-    this._bottomSheetRef.dismiss();
+    // programmer.id ? this.tableService.edit(programmer) : this.tableService.add(programmer);
+    // this._bottomSheetRef.dismiss();
+    console.log(programmer);
   }
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input} from '@angular/core';
 import {Programmer} from '../../interfaces/Programmer';
 import {Position} from '../../enums/Position';
 import {
@@ -6,16 +6,14 @@ import {
   MatBottomSheetConfig,
 } from '@angular/material/bottom-sheet';
 import {PopupComponent} from '../popup/popup.component';
-import {TableService} from '../../services/table.service';
 import {ActionType} from '../../enums/ActionType';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  providers: [TableService],
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   displayedColumns: Array<String> = [
     'id',
     'Firstname',
@@ -26,17 +24,11 @@ export class TableComponent implements OnInit {
     'Active',
     'operations',
   ];
-  dataSource: Array<Programmer> = [];
+  @Input() programmers: Array<Programmer> = [];
 
   constructor(
     private bottomSheet: MatBottomSheet,
-    private tableService: TableService,
-    private ref: ChangeDetectorRef
   ) {}
-
-  ngOnInit(): void {
-    this.getData();
-  }
 
   actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
@@ -52,12 +44,12 @@ export class TableComponent implements OnInit {
   }
 
   getData(): void {
-    this.dataSource = this.tableService.getData();
+    // this.dataSource = this.tableService.getData();
   }
 
   remove(id: number): void {
-    this.tableService.remove(id);
-    this.getData();
-    console.log('New statement of dataSource', this.dataSource);
+  //   this.tableService.remove(id);
+  //   this.getData();
+    console.log('deleting programmer with id ', id);
   }
 }

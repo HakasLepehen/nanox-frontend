@@ -5,7 +5,7 @@ export interface Programmer {
   firstName: string;
   lastName: string;
   middleName?: string;
-  position: Position;
+  position: string;
   dateOfBirth?: string;
   active: boolean;
 }
