@@ -1,0 +1,22 @@
+{
+  "programmers": [
+    {
+      "id": 1,
+      "firstName": "Павел",
+      "lastName": "Петров",
+      "middleName": "Валериевич",
+      "position": "Junior",
+      "dateOfBirth": "Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)",
+      "active": true
+    },
+    {
+      "id": 2,
+      "firstName": "Павел",
+      "lastName": "Петров",
+      "middleName": "Михайлович",
+      "position": "Senior",
+      "dateOfBirth": "Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)",
+      "active": true
+    }
+  ]
+}
