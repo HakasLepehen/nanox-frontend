@@ -12,4 +12,8 @@ export class ProgrammerService {
   getAllProgrammers(): Observable<Programmer[]> {
     return this.api.getAllProgrammers();
   }
+
+  createProgrammer(programmer: Programmer): Observable<Programmer> {
+    return this.api.createProgrammer(programmer);
+}
 }

@@ -1,7 +1,6 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Programmer} from "../../interfaces/Programmer";
 import {ProgrammerService} from "../../services/programmer.service";
-import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-programmer',
