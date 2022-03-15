@@ -1,7 +1,7 @@
 {
   "programmers": [
     {
-      "id": 1,
+      "id": "d9e4b36f-abd2-41b7-ab1a-227ef38f262a",
       "firstName": "Павел",
       "lastName": "Петров",
       "middleName": "Валериевич",
@@ -10,7 +10,7 @@
       "active": true
     },
     {
-      "id": 2,
+      "id": "71a8b096-ecff-46de-b947-ef6ec0cb0766",
       "firstName": "Павел",
       "lastName": "Петров",
       "middleName": "Михайлович",

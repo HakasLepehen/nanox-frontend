@@ -1,7 +1,7 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {Programmer} from "../../interfaces/Programmer";
 import {ProgrammerService} from "../../services/programmer.service";
-import {ApiService} from "../../services/api.service";
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-programmer',
@@ -15,15 +15,11 @@ export class ProgrammerComponent implements OnInit {
 
   programmers: Array<Programmer> = [];
 
-  constructor(
-    private programmerService: ProgrammerService
-  ) { }
+  constructor(private programmerService: ProgrammerService) { }
 
   public ngOnInit() {
     this.programmerService.getAllProgrammers().subscribe(
       programmers => this.programmers = programmers
     )
-
   }
-
 }
