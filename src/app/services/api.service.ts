@@ -14,7 +14,6 @@ const programmer: Programmer = {
   "position": "Junior",
   "dateOfBirth": "Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)",
   "active": true
-
 }
 
 @Injectable()

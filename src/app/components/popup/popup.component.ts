@@ -3,12 +3,15 @@ import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
 import {Programmer} from "../../interfaces/Programmer";
+import {ProgrammerService} from "../../services/programmer.service";
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
-  providers: []
+  providers: [
+    ProgrammerService
+  ]
 })
 export class PopupComponent implements OnInit {
   formData = this.formBuilder.group({
@@ -20,10 +23,12 @@ export class PopupComponent implements OnInit {
   });
   //positions are needed to transfer positions to the form
   positions: Array<Position> = [Position.JUNIOR, Position.MIDDLE, Position.SENIOR];
+  @Output() submit: EventEmitter<Programmer> = new EventEmitter<Programmer>()
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
     private formBuilder: FormBuilder,
+    private programmerService: ProgrammerService
   ) {
   }
 
@@ -38,7 +43,7 @@ export class PopupComponent implements OnInit {
 
   onSubmit(): void {
     const programmer: Programmer = this.formData.value;
-    // programmer.id ? this.tableService.edit(programmer) : this.tableService.add(programmer);
+    this.submit.emit(programmer);
     // this._bottomSheetRef.dismiss();
     console.log(programmer);
   }

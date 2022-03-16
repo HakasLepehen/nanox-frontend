@@ -42,14 +42,4 @@ export class TableComponent {
     }
     return;
   }
-
-  getData(): void {
-    // this.dataSource = this.tableService.getData();
-  }
-
-  remove(id: number): void {
-  //   this.tableService.remove(id);
-  //   this.getData();
-    console.log('deleting programmer with id ', id);
-  }
 }
