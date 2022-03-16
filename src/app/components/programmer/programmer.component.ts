@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Programmer} from "../../interfaces/Programmer";
 import {ProgrammerService} from "../../services/programmer.service";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-programmer',
@@ -8,6 +9,7 @@ import {ProgrammerService} from "../../services/programmer.service";
   styleUrls: ['./programmer.component.scss'],
   providers: [
     ProgrammerService,
+    ApiService
   ]
 })
 export class ProgrammerComponent implements OnInit {
@@ -20,5 +22,13 @@ export class ProgrammerComponent implements OnInit {
     this.programmerService.getAllProgrammers().subscribe(
       programmers => this.programmers = programmers
     )
+  }
+
+  remove(id: string) {
+    this.programmerService
+      .deleteProgrammer(id)
+      .subscribe(( _) => {
+        this.programmers = this.programmers.filter((t) => t.id !== id);
+      })
   }
 }

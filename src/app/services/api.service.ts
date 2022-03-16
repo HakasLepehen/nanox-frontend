@@ -29,21 +29,20 @@ export class ApiService {
       .get<Programmer[]>(`${URL}/programmers`);
   }
 
-  createProgrammer(programmer: Programmer): Observable<Programmer> {
+  public createProgrammer(programmer: Programmer): Observable<Programmer> {
     return this.http.post<Programmer>(`${URL}/programmers`, programmer);
   }
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+  public editProgrammer(programmer: Programmer): Observable<Programmer> {
+    return this.http.patch<Programmer>(`${URL}/programmers/:id`, programmer);
   }
+
+  public deleteProgrammer(id: string): Observable<null> {
+    return this.http.delete<null>(`${URL}/programmers/${id}`)
+  }
+
+  // private handleError (error: Response | any) {
+  //   console.error('ApiService::handleError', error);
+  //   return Observable.throw(error);
+  // }
 }

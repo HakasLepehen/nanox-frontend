@@ -33,7 +33,7 @@ import {ApiService} from "../services/api.service";
   ],
   providers: [
     ProgrammerService,
-    ApiService
+    ApiService,
   ]
 })
 export class ProgrammerModule { }

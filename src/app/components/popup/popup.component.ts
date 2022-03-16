@@ -9,9 +9,6 @@ import {ProgrammerService} from "../../services/programmer.service";
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
-  providers: [
-    ProgrammerService
-  ]
 })
 export class PopupComponent implements OnInit {
   formData = this.formBuilder.group({
@@ -21,14 +18,14 @@ export class PopupComponent implements OnInit {
     position: Position,
     dateOfBirth: Date,
   });
+
   //positions are needed to transfer positions to the form
   positions: Array<Position> = [Position.JUNIOR, Position.MIDDLE, Position.SENIOR];
   @Output() submit: EventEmitter<Programmer> = new EventEmitter<Programmer>()
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
-    private formBuilder: FormBuilder,
-    private programmerService: ProgrammerService
+    private formBuilder: FormBuilder
   ) {
   }
 
@@ -44,7 +41,7 @@ export class PopupComponent implements OnInit {
   onSubmit(): void {
     const programmer: Programmer = this.formData.value;
     this.submit.emit(programmer);
-    // this._bottomSheetRef.dismiss();
     console.log(programmer);
+    this._bottomSheetRef.dismiss();
   }
 }

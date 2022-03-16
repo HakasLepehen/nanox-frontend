@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Programmer} from '../../interfaces/Programmer';
 import {Position} from '../../enums/Position';
 import {
@@ -7,11 +7,15 @@ import {
 } from '@angular/material/bottom-sheet';
 import {PopupComponent} from '../popup/popup.component';
 import {ActionType} from '../../enums/ActionType';
+import {ProgrammerService} from "../../services/programmer.service";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
+  providers: [
+    ProgrammerService
+  ]
 })
 export class TableComponent {
   displayedColumns: Array<String> = [
@@ -25,6 +29,9 @@ export class TableComponent {
     'operations',
   ];
   @Input() programmers: Array<Programmer> = [];
+
+  @Output()
+  onRemove: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private bottomSheet: MatBottomSheet,
@@ -41,5 +48,10 @@ export class TableComponent {
       return this.bottomSheet.open(PopupComponent);
     }
     return;
+  }
+
+  deleteProgrammer(id: string) {
+    this.onRemove.emit(id);
+    console.log(`remove with id: ${id}`)
   }
 }
