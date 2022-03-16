@@ -8,6 +8,7 @@ import {
 import {PopupComponent} from '../popup/popup.component';
 import {ActionType} from '../../enums/ActionType';
 import {ProgrammerService} from "../../services/programmer.service";
+import {pipe} from "rxjs";
 
 @Component({
   selector: 'app-table',
@@ -35,17 +36,21 @@ export class TableComponent {
 
   constructor(
     private bottomSheet: MatBottomSheet,
+    private programmerService: ProgrammerService
   ) {}
 
   actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
-      console.log(element);
-      const options = new MatBottomSheetConfig();
-      options.data = {element};
-      return this.bottomSheet.open(PopupComponent, options);
+      return this.bottomSheet.open(PopupComponent, {data: element});
     }
     if (action === ActionType.ADD) {
-      return this.bottomSheet.open(PopupComponent);
+      const bottomSheetRef = this.bottomSheet.open(PopupComponent);
+      bottomSheetRef
+        .afterDismissed()
+        .subscribe(result => {
+          const programmer = this.programmerService.createProgrammer(result)
+          console.log('we are getting ', programmer)
+        })
     }
     return;
   }

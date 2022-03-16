@@ -16,18 +16,21 @@ export class ProgrammerComponent implements OnInit {
 
   programmers: Array<Programmer> = [];
 
-  constructor(private programmerService: ProgrammerService) { }
+  constructor(private programmerService: ProgrammerService) {
+  }
 
   public ngOnInit() {
-    this.programmerService.getAllProgrammers().subscribe(
-      programmers => this.programmers = programmers
-    )
+    this.programmerService
+      .getAllProgrammers()
+      .subscribe(
+        programmers => this.programmers = programmers
+      )
   }
 
   remove(id: string) {
     this.programmerService
       .deleteProgrammer(id)
-      .subscribe(( _) => {
+      .subscribe(() => {
         this.programmers = this.programmers.filter((t) => t.id !== id);
       })
   }

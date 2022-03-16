@@ -6,16 +6,6 @@ import {Programmer} from "../interfaces/Programmer";
 
 const URL = environment.apiURL;
 
-const programmer: Programmer = {
-  "id": "d9e4b36f-abd2-41b7-ab1a-227ef38f2677",
-  "firstName": "Павел",
-  "lastName": "Петров",
-  "middleName": "Валериевич",
-  "position": "Junior",
-  "dateOfBirth": "Thu Mar 10 2022 00:00:00 GMT+0600 (Омск, стандартное время)",
-  "active": true
-}
-
 @Injectable()
 export class ApiService {
 

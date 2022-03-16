@@ -21,7 +21,6 @@ export class PopupComponent implements OnInit {
 
   //positions are needed to transfer positions to the form
   positions: Array<Position> = [Position.JUNIOR, Position.MIDDLE, Position.SENIOR];
-  @Output() submit: EventEmitter<Programmer> = new EventEmitter<Programmer>()
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
@@ -40,8 +39,6 @@ export class PopupComponent implements OnInit {
 
   onSubmit(): void {
     const programmer: Programmer = this.formData.value;
-    this.submit.emit(programmer);
-    console.log(programmer);
-    this._bottomSheetRef.dismiss();
+    this._bottomSheetRef.dismiss(programmer);
   }
 }
