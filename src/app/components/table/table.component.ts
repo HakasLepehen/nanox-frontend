@@ -1,14 +1,12 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Programmer} from '../../interfaces/Programmer';
 import {Position} from '../../enums/Position';
 import {
   MatBottomSheet,
-  MatBottomSheetConfig,
 } from '@angular/material/bottom-sheet';
 import {PopupComponent} from '../popup/popup.component';
 import {ActionType} from '../../enums/ActionType';
 import {ProgrammerService} from "../../services/programmer.service";
-import {pipe} from "rxjs";
 
 @Component({
   selector: 'app-table',
@@ -34,9 +32,11 @@ export class TableComponent {
   @Output()
   onRemove: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output()
+  onCreate: EventEmitter<Programmer> = new EventEmitter<Programmer>();
+
   constructor(
-    private bottomSheet: MatBottomSheet,
-    private programmerService: ProgrammerService
+    private bottomSheet: MatBottomSheet
   ) {}
 
   actionHandler(action: string, element?: Programmer): any {
@@ -47,10 +47,9 @@ export class TableComponent {
       const bottomSheetRef = this.bottomSheet.open(PopupComponent);
       bottomSheetRef
         .afterDismissed()
-        .subscribe(result => {
-          const programmer = this.programmerService.createProgrammer(result)
-          console.log('we are getting ', programmer)
-        })
+        .subscribe(
+          data => this.onCreate.emit(data)
+        )
     }
     return;
   }

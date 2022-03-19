@@ -1,3 +1,50 @@
 {
-  "programmers": []
+  "programmers": [
+    {
+      "firstName": "Пупкин",
+      "lastName": "",
+      "middleName": "",
+      "position": "Junior",
+      "dateOfBirth": "2022-03-19T18:00:00.000Z",
+      "id": 1
+    },
+    {
+      "firstName": "Павелasd",
+      "lastName": "",
+      "middleName": "",
+      "position": "Senior",
+      "dateOfBirth": "2022-03-19T18:00:00.000Z",
+      "id": 2
+    },
+    {
+      "firstName": "Вася",
+      "lastName": "",
+      "middleName": "",
+      "position": {
+        "JUNIOR": "Junior",
+        "MIDDLE": "Middle",
+        "SENIOR": "Senior"
+      },
+      "id": 3
+    },
+    {
+      "firstName": "Иванов",
+      "lastName": "",
+      "middleName": "Иванович",
+      "position": {
+        "JUNIOR": "Junior",
+        "MIDDLE": "Middle",
+        "SENIOR": "Senior"
+      },
+      "id": 4
+    },
+    {
+      "firstName": "Петров",
+      "lastName": "",
+      "middleName": "Валериевич",
+      "position": "Junior",
+      "dateOfBirth": "1988-01-19T18:00:00.000Z",
+      "id": 5
+    }
+  ]
 }

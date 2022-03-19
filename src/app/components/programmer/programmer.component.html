@@ -2,5 +2,6 @@
 <app-title></app-title>
 <app-table
   [programmers]="programmers"
-  (onRemove)="remove($event)"
+  (onRemove)="removeProgrammer($event)"
+  (onCreate)="addProgrammer($event)"
 ></app-table>
