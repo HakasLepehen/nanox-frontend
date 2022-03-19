@@ -30,7 +30,7 @@ export class PopupComponent implements OnInit {
 
   ngOnInit(): void {
     if (this._bottomSheetRef.containerInstance.bottomSheetConfig.data !== null) {
-      const programmer = this._bottomSheetRef.containerInstance.bottomSheetConfig.data.element;
+      const programmer = this._bottomSheetRef.containerInstance.bottomSheetConfig.data;
 
       programmer.dateOfBirth = new Date(programmer.dateOfBirth);
       this.formData = this.formBuilder.group(programmer);

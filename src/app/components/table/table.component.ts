@@ -35,27 +35,32 @@ export class TableComponent {
   @Output()
   onCreate: EventEmitter<Programmer> = new EventEmitter<Programmer>();
 
+  @Output()
+  onEdit: EventEmitter<Programmer> = new EventEmitter<Programmer>();
+
   constructor(
     private bottomSheet: MatBottomSheet
   ) {}
 
   actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
-      return this.bottomSheet.open(PopupComponent, {data: element});
+      const bottomSheetRef = this.bottomSheet.open(PopupComponent, {data: element});
+
+      bottomSheetRef
+        .afterDismissed()
+        .subscribe(data => this.onEdit.emit(data))
     }
     if (action === ActionType.ADD) {
       const bottomSheetRef = this.bottomSheet.open(PopupComponent);
+
       bottomSheetRef
         .afterDismissed()
-        .subscribe(
-          data => this.onCreate.emit(data)
-        )
+        .subscribe(data => this.onCreate.emit(data))
     }
     return;
   }
 
   deleteProgrammer(id: string) {
     this.onRemove.emit(id);
-    console.log(`remove with id: ${id}`)
   }
 }

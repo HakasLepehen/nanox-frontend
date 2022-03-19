@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Programmer} from '../interfaces/Programmer';
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {ApiService} from "./api.service";
 
 @Injectable()
 export class ProgrammerService {
+
+  private programmers = new Subject<Programmer[]>();
 
   constructor(private api: ApiService) {
   }

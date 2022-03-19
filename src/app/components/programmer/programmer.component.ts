@@ -31,6 +31,7 @@ export class ProgrammerComponent implements OnInit {
     this.programmerService
       .deleteProgrammer(id)
       .subscribe(() => {
+        // @ts-ignore
         this.programmers = this.programmers.filter((t) => t.id !== id);
       })
   }
@@ -39,10 +40,25 @@ export class ProgrammerComponent implements OnInit {
     this.programmerService
       .createProgrammer(programmer)
       .subscribe(result => {
-        this.programmers = this.programmers.concat(programmer);
+        this.programmers = this.programmers.concat(result);
         // this.programmers.push(result); // я не понимаю, почему простой пуш объекта в массив не работает?
                                           // думал что будет работать с ngOnchanges, но не получилось.
                                           // Либо реализация кривая была
       })
+  }
+
+  editProgrammer(programmer: Programmer) {
+    this.programmerService
+      .editProgrammer(programmer)
+      .subscribe(
+        (result: Programmer) => {
+          this.programmers.forEach(el => {
+            if (el.id === result.id) {
+              el = result
+            }
+          })
+        }
+        // result => console.log(result)
+      )
   }
 }

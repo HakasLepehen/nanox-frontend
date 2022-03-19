@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   public editProgrammer(programmer: Programmer): Observable<Programmer> {
-    return this.http.patch<Programmer>(`${URL}/programmers/:id`, programmer);
+    return this.http.patch<Programmer>(`${URL}/programmers/${programmer.id}`, programmer);
   }
 
   public deleteProgrammer(id: string): Observable<null> {
