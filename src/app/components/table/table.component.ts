@@ -6,14 +6,15 @@ import {
 } from '@angular/material/bottom-sheet';
 import {PopupComponent} from '../popup/popup.component';
 import {ActionType} from '../../enums/ActionType';
-import {ProgrammerService} from "../../services/programmer.service";
+
+// import {ProgrammerService} from "../../services/programmer.service";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   providers: [
-    ProgrammerService
+    // ProgrammerService
   ]
 })
 export class TableComponent {
@@ -40,7 +41,8 @@ export class TableComponent {
 
   constructor(
     private bottomSheet: MatBottomSheet
-  ) {}
+  ) {
+  }
 
   actionHandler(action: string, element?: Programmer): any {
     if (action === ActionType.EDIT) {
@@ -50,6 +52,7 @@ export class TableComponent {
         .afterDismissed()
         .subscribe(data => this.onEdit.emit(data))
     }
+
     if (action === ActionType.ADD) {
       const bottomSheetRef = this.bottomSheet.open(PopupComponent);
 
@@ -57,6 +60,7 @@ export class TableComponent {
         .afterDismissed()
         .subscribe(data => this.onCreate.emit(data))
     }
+
     return;
   }
 

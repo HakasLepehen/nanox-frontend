@@ -4,17 +4,33 @@
       "firstName": "Павел",
       "lastName": "Петров",
       "middleName": "Валериевич",
-      "position": "Middle",
+      "position": "Junior",
       "dateOfBirth": "2022-03-19T18:00:00.000Z",
       "id": 4
     },
     {
       "firstName": "Настя",
-      "lastName": "Доценкo",
-      "middleName": "",
-      "position": "Junior",
-      "dateOfBirth": "2022-03-19T18:00:00.000Z",
+      "lastName": "Доценко",
+      "middleName": "Андреевна",
+      "position": "Senior",
+      "dateOfBirth": "2022-03-13T18:00:00.000Z",
       "id": 5
+    },
+    {
+      "firstName": "Вася",
+      "lastName": "Пупки",
+      "middleName": "Валериеви",
+      "position": "Junior",
+      "id": 6,
+      "dateOfBirth": "2022-03-20T18:00:00.000Z"
+    },
+    {
+      "firstName": "Настя",
+      "lastName": "Доценко",
+      "middleName": "Андреевна",
+      "position": "Junior",
+      "id": 7,
+      "dateOfBirth": "2022-03-23T18:00:00.000Z"
     }
   ]
 }

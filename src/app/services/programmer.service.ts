@@ -6,8 +6,6 @@ import {ApiService} from "./api.service";
 @Injectable()
 export class ProgrammerService {
 
-  private programmers = new Subject<Programmer[]>();
-
   constructor(private api: ApiService) {
   }
 
