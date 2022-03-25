@@ -1,13 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Programmer} from '../../interfaces/Programmer';
 import {Position} from '../../enums/Position';
-import {
-  MatBottomSheet,
-} from '@angular/material/bottom-sheet';
+import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {PopupComponent} from '../popup/popup.component';
 import {ActionType} from '../../enums/ActionType';
-
-// import {ProgrammerService} from "../../services/programmer.service";
 
 @Component({
   selector: 'app-table',

@@ -3,7 +3,6 @@ import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {FormBuilder} from "@angular/forms";
 import {Position} from "../../enums/Position";
 import {Programmer} from "../../interfaces/Programmer";
-import {ProgrammerService} from "../../services/programmer.service";
 
 @Component({
   selector: 'app-popup',

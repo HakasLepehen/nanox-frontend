@@ -10,6 +10,7 @@ import {PopupComponent} from "../components/popup/popup.component";
 import {HttpClientModule} from "@angular/common/http";
 import {ProgrammerService} from "../services/programmer.service";
 import {ApiService} from "../services/api.service";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {ApiService} from "../services/api.service";
     BrowserAnimationsModule,
     CommonModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProgrammerService,

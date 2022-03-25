@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Programmer} from '../interfaces/Programmer';
-import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {Observable} from "rxjs";
 import {ApiService} from "./api.service";
 
 @Injectable()
