@@ -18,8 +18,8 @@
     },
     {
       "firstName": "Вася",
-      "lastName": "Пупки",
-      "middleName": "Валериеви",
+      "lastName": "Пупкин",
+      "middleName": "Валериевич",
       "position": "Junior",
       "id": 6,
       "dateOfBirth": "2022-03-20T18:00:00.000Z"
@@ -28,7 +28,7 @@
       "firstName": "Настя",
       "lastName": "Доценко",
       "middleName": "Андреевна",
-      "position": "Junior",
+      "position": "Middle",
       "id": 7,
       "dateOfBirth": "2022-03-23T18:00:00.000Z"
     }

@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, Output} from '@angular/core';
 import {Programmer} from '../../interfaces/Programmer';
 import {Position} from '../../enums/Position';
 import {
+  MAT_BOTTOM_SHEET_DATA,
   MatBottomSheet,
 } from '@angular/material/bottom-sheet';
 import {PopupComponent} from '../popup/popup.component';
@@ -40,7 +41,7 @@ export class TableComponent {
   onEdit: EventEmitter<Programmer> = new EventEmitter<Programmer>();
 
   constructor(
-    private bottomSheet: MatBottomSheet
+    private bottomSheet: MatBottomSheet,
   ) {
   }
 

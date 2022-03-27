@@ -39,27 +39,28 @@ export class ProgrammerComponent implements OnInit {
   }
 
   addProgrammer(programmer: Programmer) {
-    this.programmerService
-      .createProgrammer(programmer)
-      .subscribe(result => {
-        this.programmers = this.programmers.concat(result);
-        // this.programmers.push(result); // я не понимаю, почему простой пуш объекта в массив не работает?
-        // почему надо создавать новый массив?
-      })
+    if (programmer !== undefined) {
+      this.programmerService
+        .createProgrammer(programmer)
+        .subscribe(result => {
+          this.programmers = this.programmers.concat(result);
+          // this.programmers.push(result); // я не понимаю, почему простой пуш объекта в массив не работает?
+          // почему надо создавать новый массив?
+        })
+    }
   }
 
   editProgrammer(programmer: Programmer) {
-    this.programmerService
-      .editProgrammer(programmer)
-      .subscribe(
-        result => {
-          this.programmers = this.programmers.map(el => {
-            if (el.id == result.id) {
-              el = result
-            }
-            return el
-          })
-        }
-      )
+    if (programmer !== undefined) {
+      this.programmerService
+        .editProgrammer(programmer)
+        .subscribe(
+          result => {
+            this.programmers = this.programmers.map(el =>
+              el.id == result.id ? el = result : el
+            )
+          }
+        )
+    }
   }
 }

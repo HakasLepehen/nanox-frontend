@@ -1,9 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
-import {FormBuilder} from "@angular/forms";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef} from "@angular/material/bottom-sheet";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Position} from "../../enums/Position";
 import {Programmer} from "../../interfaces/Programmer";
-import {ProgrammerService} from "../../services/programmer.service";
 
 @Component({
   selector: 'app-popup',
@@ -11,34 +10,50 @@ import {ProgrammerService} from "../../services/programmer.service";
   styleUrls: ['./popup.component.scss'],
 })
 export class PopupComponent implements OnInit {
-  formData = this.formBuilder.group({
-    firstName: '',
-    lastName: '',
-    middleName: '',
-    position: Position,
-    dateOfBirth: Date,
-  });
+  form!: FormGroup;
 
   //positions are needed to transfer positions to the form
   positions: Array<Position> = [Position.JUNIOR, Position.MIDDLE, Position.SENIOR];
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<PopupComponent>,
-    private formBuilder: FormBuilder
+    @Inject(MAT_BOTTOM_SHEET_DATA) public data: Programmer
   ) {
   }
 
   ngOnInit(): void {
-    if (this._bottomSheetRef.containerInstance.bottomSheetConfig.data !== null) {
-      const programmer = this._bottomSheetRef.containerInstance.bottomSheetConfig.data;
-
-      programmer.dateOfBirth = new Date(programmer.dateOfBirth);
-      this.formData = this.formBuilder.group(programmer);
+    //open form to edit Programmer
+    if (this.data !== null) {
+      this.form = new FormGroup({
+        firstName: new FormControl(this.data.firstName, [Validators.required, Validators.maxLength(50)]),
+        lastName: new FormControl(this.data.lastName, [Validators.required, Validators.maxLength(50)]),
+        middleName: new FormControl(this.data.middleName, [Validators.maxLength(50)]),
+        position: new FormControl(this.data.position, [Validators.required]),
+        dateOfBirth: new FormControl(this.data.dateOfBirth, [Validators.required]),
+      })
+      return;
     }
+    this.form = new FormGroup({
+      firstName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      middleName: new FormControl('', [Validators.maxLength(50)]),
+      position: new FormControl('', [Validators.required]),
+      dateOfBirth: new FormControl(Date, [Validators.required]),
+    })
+    return;
   }
 
   onSubmit(): void {
-    const programmer: Programmer = this.formData.value;
-    this._bottomSheetRef.dismiss(programmer);
+    if (this.form.valid) {
+      //If will be creating Programmer - this.data.id returns null
+      if (this.data.id !== null) {
+        this.form.value.id = this.data.id;
+      }
+      this._bottomSheetRef.dismiss(this.form.value);
+    }
+  }
+
+  checkData(controlName: string, errorName: string): boolean {
+    return this.form.controls[controlName].hasError(errorName);
   }
 }
