@@ -45,11 +45,14 @@ export class PopupComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      //If will be creating Programmer - this.data.id returns null
-      if (this.data.id !== null) {
-        this.form.value.id = this.data.id;
+      /* Add programmer */
+      if (!this.data) {
+        this._bottomSheetRef.dismiss(this.form.value);
+      } else {
+        /* Edit programmer */
+        const programmer: Programmer = {id: this.data.id, ...this.form.value}
+        this._bottomSheetRef.dismiss(programmer);
       }
-      this._bottomSheetRef.dismiss(this.form.value);
     }
   }
 

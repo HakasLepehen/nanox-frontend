@@ -14,9 +14,7 @@ import {ActionType} from '../../enums/ActionType';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  providers: [
-    // ProgrammerService
-  ]
+  providers: []
 })
 export class TableComponent {
   displayedColumns: Array<String> = [
@@ -41,7 +39,7 @@ export class TableComponent {
   onEdit: EventEmitter<Programmer> = new EventEmitter<Programmer>();
 
   constructor(
-    private bottomSheet: MatBottomSheet,
+    private bottomSheet: MatBottomSheet
   ) {
   }
 

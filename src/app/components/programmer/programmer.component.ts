@@ -22,9 +22,12 @@ export class ProgrammerComponent implements OnInit {
   public ngOnInit() {
     this.programmerService
       .getAllProgrammers()
-      .subscribe(
-        programmers => this.programmers = programmers
-      )
+      .subscribe({
+        next: value => this.programmers = value,
+        /* here we should think of creating some kind of handler which
+        would periodically poll the server in the event of an error */
+        error: err => alert(err.message)
+      })
   }
 
   removeProgrammer(id: string) {
@@ -39,13 +42,13 @@ export class ProgrammerComponent implements OnInit {
   }
 
   addProgrammer(programmer: Programmer) {
+    console.log('create programmer with data ', programmer)
     if (programmer !== undefined) {
       this.programmerService
         .createProgrammer(programmer)
-        .subscribe(result => {
-          this.programmers = this.programmers.concat(result);
-          // this.programmers.push(result); // я не понимаю, почему простой пуш объекта в массив не работает?
-          // почему надо создавать новый массив?
+        .subscribe({
+          next: value => this.programmers = [...this.programmers, value],
+          error: err => alert(err.message)
         })
     }
   }

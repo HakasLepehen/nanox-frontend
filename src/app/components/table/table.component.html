@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="programmers" class="mat-elevation-z8">
+<table mat-table [dataSource]="programmers" class="mat-elevation-z8" *ngIf="programmers.length;else noProgrammers">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> No.</th>
@@ -66,3 +66,11 @@
   <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
 </table>
+
+<ng-template #noProgrammers>
+  <h2 style="text-align: center">
+    There is no programmers! Click this button
+    <button mat-raised-button color="primary" (click)="actionHandler('add')">add</button>
+    to add new Programmer
+  </h2>
+</ng-template>
